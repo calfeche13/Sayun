@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html {
+        @apply
+        dark:bg-gray-950 dark:text-white
+        font-body bg-white text-black
+    }
+
+    nav {
+        @apply flex lg:flex-row flex-col gap-x-4 self-end w-full
+    }
+
+    nav ul {
+        @apply
+            lg:flex-row lg:gap-y-0 lg:gap-x-8 lg:justify-end lg:my-0 lg:items-center
+            flex flex-col items-center gap-y-2 my-4
+    }
+
+    nav ul li {
+        @apply lg:text-xl text-base
+    }
+
+    footer {
+        @apply flex justify-center mt-8
+    }
+
+    li a:not(.page-item):not(.page-link) {
+        @apply clickable-text
+    }
+
+    h2 a {
+        @apply clickable-text
+    }
+
+    .pagination {
+        @apply flex flex-row gap-x-2 my-8 justify-center
+    }
+
+    .page-item {
+        @apply text-gray-600 hover:text-gray-400
+    }
+
+    .page-item.disabled a {
+        @apply page-item-disabled
+    }
+
+    .page-item.disabled {
+        @apply page-item-disabled
+    }
+
+    .page-item.active a {
+        @apply page-item-active
+    }
+
+    .page-item.active {
+        @apply page-item-active
+    }
+
+    [x-cloak] {
+        @apply !hidden
+    }
+}
+
+@layer components {
+
+    .app-container {
+        @apply
+            2xl:px-52
+            xl:px-40
+            lg:px-6
+            px-4 mx-auto max-w-[calc(120rem)]
+    }
+
+    .title {
+        @apply
+        xl:text-3xl
+        md:text-2xl
+        font-title
+    }
+
+    .header-container {
+        @apply
+            lg:flex-row lg:justify-between lg:items-center lg:h-20
+            flex flex-col py-2 font-header min-h-16 justify-center
+    }
+
+    .list-container {
+        @apply flex flex-row flex-wrap justify-around gap-y-8 mt-8 gap-x-4
+    }
+
+    .list-container-tags {
+        @apply flex flex-row flex-wrap justify-center gap-y-4 mt-8 gap-x-2
+    }
+
+    .preview-container {
+        @apply
+            dark:shadow-gray-800 dark:bg-gray-900
+            shadow-black bg-gray-50
+            xl:hover:scale-105
+            md:w-80 md:shadow-xl
+            transition-all duration-100 ease-linear
+            flex flex-col gap-y-2 shadow-lg p-4 rounded-2xl h-fit
+    }
+
+    .preview-read-time-icon {
+        @apply fill-gray-500
+    }
+
+    .preview-title {
+        @apply text-2xl font-header h-auto
+    }
+
+    .preview-date-container {
+        @apply text-gray-500
+    }
+
+    .preview-img {
+        @apply w-full h-auto self-center rounded-2xl
+    }
+
+    .summary-container {
+        @apply h-24 line-clamp-3 leading-8 self-start text-gray-600
+    }
+
+    .tag-container {
+        @apply flex flex-row flex-wrap gap-x-2 gap-y-2
+    }
+
+    .tag {
+        @apply
+            dark:bg-gray-800 dark:text-gray-400
+            hover:bg-gray-500 hover:text-white hover:scale-110
+            transition-all duration-100 ease-linear
+            bg-gray-400 rounded-[calc(1.25rem)] px-4 py-[calc(0.125rem)] text-white border-gray-800
+    }
+
+    .view-me-button {
+        @apply
+            mb-4 mt-2 px-5 py-2.5 w-fit font-medium rounded-lg text-sm text-center
+            text-blue-700 border-blue-700
+            hover:bg-blue-800 hover:text-white border
+            dark:border-blue-500 dark:text-blue-500
+            dark:hover:text-white dark:hover:bg-blue-500
+    }
+
+    .menu-button {
+        @apply fill-black dark:fill-white
+    }
+
+    .blog-header-container {
+        @apply flex flex-col justify-center items-center my-4
+    }
+
+    .blog-title {
+        @apply text-2xl font-bold
+    }
+
+    .read-time-icon {
+        @apply
+    }
+}
+
+@layer utilities {
+    .clickable-text {
+        @apply hover:text-gray-400
+    }
+
+    .page-item-disabled {
+        @apply dark:text-gray-800 text-gray-300 hover:cursor-not-allowed
+    }
+
+    .page-item-active {
+        @apply dark:text-gray-300 text-gray-400 hover:cursor-not-allowed
+    }
+}

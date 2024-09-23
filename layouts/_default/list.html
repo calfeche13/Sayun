@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <div class="mt-8">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </div>
+  <div class="{{ cond (eq .Type "tags") "list-container-tags" "list-container" }}">
+    {{ range .Pages }}
+      {{ partial "preview.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

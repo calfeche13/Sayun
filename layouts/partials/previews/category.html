@@ -1,0 +1,15 @@
+<div class="preview-container">
+    <img class="preview-img" src="/default_image.svg">
+
+    <h2 class="preview-title cursor-pointer"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+
+    <div x-data="{ full_time: false, date: new Date({{ .Date.UnixMilli }}) }" class="preview-date-container">
+        <div @click="full_time=!full_time" class="flex flex-row cursor-pointer space-x-1">
+            <button>
+                Last Updated
+                <span x-show="!full_time" x-timeago="date"></span>
+                <span x-show="full_time">at {{ time.Format "Jan 2, 2006" .Date }}</span>
+            </button>
+        </div>
+    </div>
+</div>

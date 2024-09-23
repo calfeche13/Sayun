@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+  x-data="app"
+  :class="{
+    'dark' : (theme === 'dark'),
+    'light' : (theme === 'light')
+  }"
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        {{ partial "header.html" . }}
+      </header>
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer>
+        {{ partial "footer.html" . }}
+      </footer>
+    </div>
+  </body>
+</html>

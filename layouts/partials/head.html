@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+<script>
+
+    let theme = (intialTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+
+    document.addEventListener('alpine:init', () => {
+        const themes = [ 'light', 'dark' ]
+
+
+        Alpine.data('app', (intialTheme = theme) => ({
+            theme: intialTheme,
+            isMenuOpen: false,
+            toggleTheme() {
+                this.theme = themes[(themes.indexOf(this.theme) + 1) % themes.length];
+                localStorage.theme = this.theme;
+            },
+            toggleMenu() {
+                this.isMenuOpen = !this.isMenuOpen
+            }
+        }));
+    });
+
+    document.documentElement.className = theme;
+    localStorage.theme = theme;
+</script>

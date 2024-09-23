@@ -1,0 +1,17 @@
+<div class="header-container">
+    <div class="flex flex-row justify-between items-center">
+        <h1 class="title"><a href="/">{{ site.Title }}</a></h1>
+        <div class="flex flex-row justify-center lg:hidden">
+            {{- partial "theme_toggle.html" }}
+            <button x-cloak @click="toggleMenu()" type="button" aria-controls="mobile-menu" aria-expanded="isMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-button" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path x-show="!isMenuOpen" x-transition d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    <path x-show="isMenuOpen" x-transition d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div x-cloak :class="!isMenuOpen ? 'hidden' : 'block'" class="lg:block">
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    </div>
+</div>

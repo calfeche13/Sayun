@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+  {{ partial "hero.html" . }}
+
+  <div class="list-container">
+    {{ range (.Paginator 8).Pages }}
+      {{ partial "preview.html" . }}
+    {{ end }}
+  </div>
+
+  <!--change format to default or terse-->
+  {{ template "_internal/pagination.html" (dict "page" . "format" "default") }}
+{{ end }}

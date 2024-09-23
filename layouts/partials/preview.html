@@ -1,0 +1,7 @@
+{{ if eq .Type "tags" }}
+    {{ partial "previews/tag.html" . }}
+{{ else if eq .Type "categories" }}
+    {{ partial "previews/category.html" . }}
+{{ else }}
+    {{ partial "previews/regular.html" . }}
+{{ end }}
