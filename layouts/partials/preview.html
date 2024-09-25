@@ -1,7 +1,7 @@
 {{ if eq .Type "tags" }}
     {{ partial "previews/tag.html" . }}
-{{ else if eq .Type "categories" }}
-    {{ partial "previews/category.html" . }}
+{{ else if eq .Type "page" }}
+    {{ partial "previews/page.html" . }}
 {{ else }}
-    {{ partial "previews/regular.html" . }}
+    {{ partial "previews/term.html" . }}
 {{ end }}

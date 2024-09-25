@@ -153,16 +153,16 @@
         @apply fill-black dark:fill-white
     }
 
-    .blog-header-container {
-        @apply flex flex-col justify-center items-center my-4
-    }
-
-    .blog-title {
-        @apply text-2xl font-bold
-    }
-
     .read-time-icon {
         @apply
+    }
+
+    .regular-link {
+        @apply text-blue-500 hover:text-blue-700
+    }
+
+    .highlight {
+        @apply text-amber-600
     }
 }
 
