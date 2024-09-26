@@ -23,7 +23,7 @@
 
     <div class="tag-container">
         {{ range .Params.tags }}
-        <span class="tag"><a href="/tags/{{.}}">{{ . }}</a></span>
+        <span class="tag"><a href="/tags/{{ replace . " " "-" }}">{{ . }}</a></span>
         {{ end }}
     </div>
 </div>
