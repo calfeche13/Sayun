@@ -12,7 +12,7 @@
     flex flex-col-reverse gap-y-4 w-full
   ">
 
-    {{ if index .Params "table_of_contents" }}
+    {{ if and (index .Params "table_of_contents") (index .Params.table_of_contents "section") }}
       <div class="md:w-3/5 w-full h-fit">
         {{ .Content }}
       </div>
@@ -22,8 +22,15 @@
       ">
         <label>Table of Contents</label>
         <ol class="pl-10">
-          {{ range .Params.table_of_contents }}
+          {{ range .Params.table_of_contents.section }}
                 <li class="list-item list-decimal"><a href="#{{ .section_id }}">{{ .section_name }}</a></li>
+                {{ if index . "subsection" }}
+                  <ul class="pl-6">
+                  {{ range .subsection }}
+                      <li class="list-item list-disc"><a href="#{{ .section_id }}">{{ .section_name }}</a></li>
+                  {{ end }}
+                  </ul>
+                {{ end }}
           {{ end }}
         </ol>
       </div>
