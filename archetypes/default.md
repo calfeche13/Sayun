@@ -6,6 +6,16 @@ summary =  'Add front matter summary here...'
 tags = []
 categories = []
 image = '/default_image.svg'
+
+[[table_of_contents.section]]
+    section_id = 'sec1'
+    section_name = 'Section 1'
+[[table_of_contents.section.subsection]]
+    section_id = 'sec1_sub1'
+    section_name = 'Section 1 - Sub Section 1'
+[[table_of_contents.section]]
+    section_id = 'sec2'
+    section_name = 'Section 2'
 +++
 
 First paragraph is the summary, beyond the more
